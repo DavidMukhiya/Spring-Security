@@ -20,9 +20,10 @@ public class StudentController {
 
     @GetMapping("/{studentId}")
     public Student getStudent(@PathVariable("studentId") Integer studentId){
-
+        System.out.println("getStudent");
         return STUDENTS.stream()
                 .filter((stu)->studentId.equals(stu.getStudentId())).findFirst()
                 .orElseThrow(()->new RuntimeException("Student "+ studentId+" does not exists"));
+
     }
 }
